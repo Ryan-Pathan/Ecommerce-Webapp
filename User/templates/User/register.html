@@ -1,0 +1,85 @@
+{% extends 'User/basic.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'User/css/register.css' %}?{% now "U" %}">
+{% endblock css %}
+{% block content %}
+<div class="container">
+    <!-- Just Checking -->
+    <div class="row top no-gutters justify-content-center">
+        <div class="col-lg-5 col-sm-12 super">
+            <div class="col-lg-12 below-right no-gutters">
+            </div>
+            <div class="col-lg-12 cover-right no-gutters">
+                
+            </div>
+        </div>
+        <div class="col-lg-5 left">
+            <div class="container-left container col-lg-12 col-sm-12">
+                <div class="container col-lg-10">
+                    <div class="row register-heading">
+                        <h3>Register</h3>
+                    </div>
+                    <div class="row top-left side-row ">
+                        <form method="POST">
+                                {% csrf_token %}   
+                                <div class="form-group">
+                                <div class="fieldWrapper">
+                                    <label for="{{ user.username.id_for_label }}" class="down">Username</label>
+                                    {{ user.username }}
+                                </div>
+                                {{ user.username.errors }}
+                                <div class="fieldWrapper">
+                                        <label for="{{ user.email.id_for_label }}" class="down">Email</label>
+                                        {{ user.email }}
+                                </div>
+                                {{ user.email.errors }}
+                                <div class="fieldWrapper">
+                                    <label for="{{ user.password1.id_for_label }}" class="down">Password</label>
+                                    {{ user.password1 }}
+                                </div>
+                                {{ user.password1.errors }}
+                                <div class="fieldWrapper">
+                                    <label for="{{ user.password2.id_for_label }}"class="down">Confirm Password</label>
+                                    {{ user.password2 }}
+                                </div>
+                                {{ user.password2.errors }}
+                                <div class="fieldWrapper">
+                                    <label for="{{ register.bank_acc_no.id_for_label }}"class="down">Bank account number</label>
+                                    {{ register.bank_acc_no }}
+                                </div>
+                                {{ register.bank_acc_no.errors }}
+                                <div class="fieldWrapper">
+                                    <label for="{{ register.ifsc.id_for_label }}"class="down">IFSC</label>
+                                    {{ register.ifsc }}
+                                </div>
+                                {{ register.ifsc.errors }}
+                                <div class="fieldWrapper">
+                                    <label for="{{ register.address.id_for_label }}"class="down">Address</label>
+                                    {{ register.address }}
+                                </div>
+                                {{ register.address.errors }}
+                                <div class="fieldWrapper">
+                                    <br>
+                                    <label for="{{ register.seller.id_for_label }}" style="font-weight: bold;">Want to be a Seller?</label>&nbsp
+                                    {{ register.seller }}
+                                </div>
+                                <div class="fieldWrapper">
+                                    <br>
+                                    {{ register.captcha }}
+                                </div>
+                                <br>
+                                <div class="fieldWrapper">
+                                    <p class="text-muted" style="font-weight: bold;">By clicking on below button, you agree with our <a href='#'>Terms and Conditions</a></p>
+                                </div>
+                                <button class="btn btn-info" type="submit">Submit</button>
+                                </div>
+                        </form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>
+{% endblock %}

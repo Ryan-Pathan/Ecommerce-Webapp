@@ -1,0 +1,190 @@
+{% extends 'User/basic.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'Rent/css/basic_manual.css' %}?{% now "U" %}">
+<style>
+  .height{
+  height:300px;
+  }
+  h3 {
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}
+</style>
+
+{% endblock %}
+
+{% block content %}
+  <!-- carousal Starts here -->
+  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="2000">
+        <img src="{% static 'Rent/images/hello.jpg' %}" class="d-block w-100 height" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>We help you to create memorable experiences </h3>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="3000">
+        <img src="{% static 'Rent/images/diwali.jpg' %}" class="d-block w-100 height" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h3>Rent lights, decoration items,diyas and much more and celebrate amazing festival of lights
+             <br>Happy Diwali</h3>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2500">
+        <a href="/event/1/Ethnic/1">
+        <img src="{% static 'Rent/images/wedding.jpg' %}" class="d-block w-100 height" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h3 style="text-decoration:none;">Make your special day, more special with our exciting and amazing products at very less price
+          <br>Click here to plan</h3>
+        </div>
+          </a>
+      </div>
+    </div>
+  </div>
+  <!-- carousal Ends here  -->
+
+
+  <!-- Second Navbar Starts Here -->
+  
+      <!-- horizontal carousal -->
+      
+      <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <nav class="navbar navbar-expand-lg navbar-dark" style="background-color:darkblue;">
+                  <div class="container-fluid">
+                    <span> <a class="navbar-brand" id="1" href="/event/1/Ethnic/1">Wedding Session</a> </span>
+
+                    <span> <a class="navbar-brand" id="2" href="/event/2/Ethnicity/1">Birthday</a> </span>
+
+                    <span> <a class="navbar-brand" id="3" href="/event/3/Flowers/1">Pooja</a> </span>
+
+                    <span> <a class="navbar-brand" id="4" href="/event/4/1">Diwali</a> </span>
+
+                    <span> <a class="navbar-brand" id="5" href="/event/5/1">Christmas</a> </span>
+
+                    <span> <a class="navbar-brand" id="six" href="/event/6/1">Ganpati</a> </span>
+                  </div>
+                </nav>                
+              </div>
+        </div>
+        </div>  
+
+        <!-- horizontal carousal ends here -->
+  <!-- Second Navbar Ends Here -->
+
+    <!-- Register Part -->
+    <div class="section container">
+
+      <div class="carousel-inner mx-5">
+        <div class="seller">
+          <img src="{% static 'Rent/images/back.jpg' %}" class="seller-width" alt="...">
+          <div class="card-seller d-md-block" >
+            <h3 style="color:white;"><b>Plan your Special Moment</b></h3>
+            <button type="submit" class="btn btn-primary" ><a href="/event/1/Ethnic/1" style="color:white;text-decoration: none;">Plan Event</a></button>
+          </div>
+        </div>
+      </div>
+  
+      <div class="carousel-inner">
+        <div class="seller">
+          <img src="{% static 'Rent/images/contact Us.jpg' %}" class="seller-width" alt="...">
+          <div class="card-seller d-md-block">
+            <h5>Contact Us</h5>
+            <p>Here we are available for 24*7 </p>
+            <form action="#contacts">
+            <button type="submit" class="btn btn-outline-primary">Contact</button>
+          </div>
+        </div>
+      </div>
+    </div>
+      
+      
+  <!-- Cards Starts here -->
+<!--  <div class="container">-->
+<!--  <div class="card-group">-->
+<!--    {% for i in product %}-->
+<!--    <div class="card" >-->
+<!--      <img src="{{i.product_name.all}}" class="card-img-top" alt="...">-->
+<!--      <div class="card-body">-->
+<!--        <h5 class="card-title">{{i.title}}-->
+<!--        </h5>-->
+<!--        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's-->
+<!--          content.</p>-->
+<!--        <a href="#" class="btn btn-primary">Go somewhere</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    {% endfor %}-->
+
+<!--  </div>-->
+<!--  </div>-->
+
+
+  <section id="contacts">
+
+    <div class="row row-large align-center" id="row-1432787271">
+      <div id="col-1538136024" class="col medium-2 small-12 large-2">
+        <div class="col-inner">
+          <div id="text-1712333857" class="text">
+            <p><strong>Mail us<br /></strong>
+              <a
+                href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJTGnLBKzQgQjwdQHfHRJjrpQgSmDdsDwLnnMgPpGMLdBFNzCsZNmSqnzNGDnvZCQhCdCJq" target="_blank">
+                rohit123@gamil.com</a>
+            </p>
+            <style>
+              #text-1712333857 {
+                text-align: center;
+              }
+            </style>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div id="col-2122993556" class="col medium-2 small-12 large-2">
+        <div class="col-inner">
+          <div id="text-3540112701" class="text">
+            <p><strong>Visit us<br /></strong>
+            K-001.Maruti Mahadev Nagar,<br>BLDG No.6, Near Parag Bungalow,<br>Sunil Nagar,Dombivli(EAST)<br>Thane Maharashtra 421201</p>
+            <style>
+              #text-3540112701 {
+                text-align: center;
+              }
+            </style>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div id="col-910846341" class="col medium-4 small-12 large-3">
+        <div class="col-inner">
+          <div id="text-1826064971" class="text">
+            <p><strong>Contact us<br /></strong>Tel: <a href="tel:004724119020">+91 9137772979</a><br />Email: <a
+                href="mailto:info@appeartv.com">rohit123@jrk.com </a><br />Org numberNO : 986942033</p>
+            <style>
+              #text-1826064971 {
+                text-align: center;
+              }
+            </style>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer part -->
+  <footer class="fusion-footer-widget-area fusion-widget-area">
+    <div class="text-center" id="copyright">
+      Copyright &copy;www.Prabhandh.com All Rights Reserved
+    </div>
+  </footer>
+{% endblock %}

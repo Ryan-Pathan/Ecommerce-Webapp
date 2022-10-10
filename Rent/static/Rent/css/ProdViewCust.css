@@ -1,0 +1,179 @@
+.imgb {
+  background-color: #999;
+  width: inherit;
+  height: inherit;
+  display: inline-block;
+}
+.imgb img {
+  width: inherit !important;
+  height: inherit !important;
+}
+.left1 {
+  height: max-content;
+  overflow: hidden;
+  transition: 0.5s ease-in;
+}
+.left {
+  background-color: white;
+  transition: 0.5s ease-in;
+  padding: 20px;
+  overflow: hidden;
+  height: inherit;
+  overflow-y: scroll;
+  transition: 0.5s ease-in;
+}
+.right {
+  background-color: white;
+  height: 100vh;
+}
+.info {
+  text-align: center;
+}
+.imgb {
+  position: relative;
+}
+.over {
+  position: absolute;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+  transition: 0.5s ease;
+  opacity: 0;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  margin: auto;
+}
+.imgb:hover .over {
+  opacity: 1;
+}
+.vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.left::-webkit-scrollbar {
+  width: 5px;
+}
+.left::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+.left::-webkit-scrollbar-thumb {
+  background: blue;
+  border-radius: 10px;
+}
+.left::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+
+.filecon {
+  background-color: #ffffff;
+  height: 200px;
+  margin: 0;
+  padding: 0px;
+}
+.imagefile {
+  position: absolute;
+  margin: 0;
+  z-index: 22;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+}
+.imagecover {
+  border: 4px dashed darkblue;
+  position: relative;
+  padding: 0;
+  width: inherit;
+  height: 100%;
+  transition: 0.5s ease-in;
+}
+.drag {
+  text-align: center;
+  align-self: center;
+  position: relative;
+  top: 40%;
+}
+#o {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+#im {
+  position: relative;
+  max-width: inherit;
+  max-height: inherit;
+  padding: 0;
+}
+.imagecover.active {
+  display: none;
+}
+#im.inactive {
+  position: relative;
+  max-width: inherit;
+  max-height: inherit;
+  padding: 0;
+  display: none;
+  transition: ease-in 0.5s;
+}
+.forbtn {
+  margin: 0;
+  width: 300px;
+  align-self: center;
+  align-content: center;
+  text-align: center;
+}
+
+.aboutblock {
+  display: block;
+  word-wrap: break-word;
+  overflow: hidden;
+  overflow-y: scroll;
+  max-height: 130px;
+  border-radius: 1px;
+}
+.aboutblock::-webkit-scrollbar {
+  width: 5px;
+}
+
+.aboutblock::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+.aboutblock::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+}
+
+.aboutblock::-webkit-scrollbar-thumb:hover {
+  background: #b30000;
+}
+
+h5 {
+  color: black;
+  font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+h2,
+h3 {
+  color: black;
+  font-family: "Nunito Sans", "Helvetica Neue", sans-serif;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+body {
+  background-image: white;
+}

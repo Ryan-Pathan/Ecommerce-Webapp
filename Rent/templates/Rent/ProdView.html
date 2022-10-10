@@ -1,0 +1,154 @@
+{% extends 'User/basic.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'Rent/css/ProdView.css' %}?{% now "U" %}">
+<link href="https://fonts.googleapis.com/css?family=Nunito+Sans:400,400i,700,900&display=swap" rel="stylesheet">
+
+{% endblock %}
+{% block title%}
+    {{Product.product_name}}
+{%endblock%}
+{% block content %}
+<div class="container-fluid">
+    <br>
+    <div class="row">
+        <h2>Product Details</h2>
+        <br>
+        <br>
+        <br>
+        <div class="col-sm-5 left1">
+            <div class="col-12 left">
+                {% include 'Rent/loop.html' %}
+            </div>
+        </div>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-5 right col-xs-12">
+            <div class="row">
+                <div class="col-12">
+                    <br>
+                    <div class="row justify-content-center">
+                        <div class="col-6">
+                            <h3>{{ pro.title }}</h3>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-5">
+                            <h5>Product Description</h5>
+                        </div>
+                        <div class="col-7">
+                            <div class="aboutblock">
+                                <h5>{{ pro.about }}</h5>
+                            </div>
+                            <br>
+                            <form method="POST" class="photoform" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <h4 for="id_photo"><strong>Add more Images?</strong></h4>
+                                </div>
+                                <br>
+                                <div class="row filecon container-fluid">
+                                    <div class="col-4 imagecover h-100">
+                                        <input type="file" name="photo" accept="image/*" required id="id_photo" class="imagefile" onchange="bg(event)">
+                                        <div class="drag">
+                                            <h3>Drag Your image here</h3>
+                                        </div>
+                                    </div>
+                                    <div id="im" class="inactive">
+                                        <img id="o">
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-sm">
+                                        <button class="btn btn-info file" data-val="{{ pro.id }}" type="submit">Submit</button>
+                                    </div>  
+                                    <div class="forbtn col-sm">
+                                        <button class="btn btn-danger removeb d-none" onclick="remove(event)" type="text">Remove</button>
+                                    </div>
+                                    <div class="col-sm product">
+                                        <a href="{% url 'product' %}" class="btn btn-info">Product</a>             
+                                    </div>           
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                    <!-- <div class="col-6">
+                        <h4>{{ pro.about }}</h4>
+                        <form method="POST" class="photoform" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {{ pform }}
+                            <br>
+                            <button class="btn btn-info file" data-val="{{ pro.id }}">Submit</button>
+                        </form>
+                        <button class="btn btn-info"> Add new Product</button>
+                    </div> -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block js %}
+    <script>
+        $(document).ready(function(){
+            $('.photoform').submit(function(e){
+                e.preventDefault();
+                console.log("LLLL");
+                var w=$('.file').data('val');
+                var fdata=new FormData(this);
+                fdata.append("blog",JSON.stringify(w));
+                console.log(fdata);
+                var csrftoken = $("[name=csrfmiddlewaretoken]").val();
+                console.log(fdata);
+                $.ajax({
+                     type: "post",
+                     url: "{% url 'NewImage' %}",
+                     headers:{
+                        "X-CSRFToken": csrftoken
+                    },
+                     data:fdata,
+                     contentType: false,
+                     processData: false,
+                     enctype: 'multipart/form-data',
+                     success: function (response) {
+                        $(".left").html('').load(
+                            "{% url 'load' %}"
+                        ).fadeIn(500);
+                        document.getElementById("id_photo").value="";
+                        $(".inactive").hide();
+                        $(".removeb").addClass("d-none");
+                        $(".imagecover").show();
+                        $(".product").show();
+                     }
+                 });
+            })
+        })
+
+       $(document).ready(function(){
+            $(document).delegate(".delete","click",function () { 
+                console.log("kkk");
+                var w=$(this).data('val');
+                var w1=$('.file').data('val');
+                console.log(w+""+w1);
+                $.ajax({
+                    type: "post",
+                    url: "{% url 'Delete Image' %}",
+                    data: {
+                        ph_id:w,
+                        p_id:w1,
+                        csrfmiddlewaretoken:"{{csrf_token}}",
+                    },
+                    dataType: "json",
+                    success: function (response) {
+                        $(".left").html('').load(
+                            "{% url 'load' %}"
+                        ).fadeIn(500);
+                    }
+                });
+             })
+       })
+    </script>
+    <script src="{% static 'Rent/js/ProdView.js' %}?{% now "U" %}"></script>
+{% endblock %}
